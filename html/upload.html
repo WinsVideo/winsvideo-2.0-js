@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Page</title>
+</head>
+<body>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" class="video" name="video">
+        <input type="text" class="name" name="name" value="Title">
+        <textarea type="text" class="description" name="description" value="Description"></textarea>
+        
+            <input type="text" id="tagsInput" name="tagsInput" placeholder="Tags" class="form-control">
+
+            <select name="category" class="form-control">
+                <option value="1">Film &amp; Animation</option>
+                <option value="2">Autos &amp; Vehicles</option>
+                <option value="3">Music</option>
+                <option value="4">Pets &amp; Animals</option>
+                <option value="5">Sports</option>
+                <option value="6">Travel &amp; Events</option>
+                <option value="7">Gaming</option>
+                <option value="8">People &amp; Blogs</option>
+                <option value="9">Comedy</option>
+                <option value="10">Entertainment</option>
+                <option value="11">News &amp; Politics</option>
+                <option value="12">Howto &amp; Style</option>
+                <option value="13">Education</option>
+                <option value="14">Science &amp; Technology</option>
+                <option value="15">Nonprofits &amp; Activism</option>
+                <option value="16">Dominoes</option>
+                <option value="18">Stream</option>
+              </select>
+
+              <select name="privacy" class="form-control">
+                <option value="1">Public</option>
+                <option value="2">Private</option>
+              </select>
+
+        <button class="submitBtn" name="submit">Upload</button>
+    </form>
+</body>
+</html>
