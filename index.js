@@ -23,10 +23,10 @@ app.use(morgan('dev'));
 //start app
 const port = process.env.PORT || 3000;
 
-var mysql = require('mysql');
 const { readFile } = require('fs');
 const { SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS } = require('constants');
 
+var mysql = require('mysql');
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -147,6 +147,21 @@ app.post('/upload', async (req, res) => {
               await ffmpeg.ffprobe(outFilename, function(err, metadata) {
                 // console.log(metadata.streams[0].duration);
                 var videoDuration = metadata.streams[0].duration;
+
+                //send response
+                res.send({
+                  status: true,
+                  message: 'Video is uploaded',
+                  data: {
+                      name: video.name,
+                      mimetype: video.mimetype,
+                      size: video.size,
+                      duration: videoDuration,
+                      outputVideo: outFilename,
+                      inputVideo: inFilename
+                  }
+              });
+              
               })
             }
 
@@ -155,16 +170,7 @@ app.post('/upload', async (req, res) => {
             setTimeout(proccessThumbnails, 2000);
             setTimeout(calculateVideoDuration, 3000);
 
-            //send response
-            res.send({
-                status: true,
-                message: 'Video is uploaded',
-                data: {
-                    name: video.name,
-                    mimetype: video.mimetype,
-                    size: video.size
-                }
-            });
+            
         }
     } catch (err) {
         res.status(500).send(err);
