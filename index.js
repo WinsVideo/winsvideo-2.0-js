@@ -30,7 +30,7 @@ const { SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS } = require('constants');
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "zBHNzZX54qLaQ6tAJSJECLg8CJh4J2kVvQLxPrZU9LzeZ9dDNgARcAAG3AKWq853",
+  password: "",
   database: "videotube"
 });
 
