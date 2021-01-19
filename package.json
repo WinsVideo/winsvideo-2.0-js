@@ -15,9 +15,11 @@
     "express-fileupload": "^1.2.1",
     "ffmpeg": "0.0.4",
     "fluent-ffmpeg": "^2.1.2",
+    "fs": "0.0.1-security",
     "lodash": "^4.17.20",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
-    "random-id": "^1.0.4"
+    "random-id": "^1.0.4",
+    "validator": "^13.5.2"
   }
 }
