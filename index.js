@@ -155,7 +155,7 @@ app.post('/upload', async (req, res) => {
               await ffmpeg.ffprobe(outFilename, function (err, metadata) {
                 const latestVideoId = result.insertId
                 const videoDuration = metadata.streams[0].duration
-                const sql = 'UPDATE videos SET duration='+videoDuration+' WHERE id='+latestVideoId+''
+                const sql = 'UPDATE videos SET duration=' + videoDuration + ' WHERE id=' + latestVideoId + ''
                 con.query(sql, function (err, result) {
                   console.log('Updated the video duration')
                   // console.dir(result)
