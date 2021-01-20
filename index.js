@@ -8,6 +8,7 @@ const exec = require('child_process').exec
 const rand = require('random-id')
 const fs = require('fs')
 const config = require('./config.json')
+const { getVideoDurationInSeconds } = require('get-video-duration')
 
 const app = express()
 
@@ -156,9 +157,22 @@ app.post('/upload', async (req, res) => {
               await ffmpeg.ffprobe(outFilename, function (err, metadata) {
                 const latestVideoId = result.insertId
                 const videoDuration = metadata.streams[0].duration
-                const sql = 'UPDATE videos SET duration=' + videoDuration + ' WHERE id=' + latestVideoId + ''
+
+                const duration = metadata.streams[0].duration
+                let hours = Math.floor(duration / 3600);
+                let mins = Math.floor((duration - hours * 3600) / 60);
+                let secs = Math.floor(duration % 60);
+                hours = hours < 1 ? "" : hours + ":";
+                mins = mins < 10 ? "0" + mins + ":" : mins + ":";
+                secs = secs < 10 ? "0" + secs : secs;
+                let finalDuration = hours + mins + secs;
+
+                console.log(finalDuration);
+
+                console.log(metadata);
+                const sql = "UPDATE videos SET duration = '" + finalDuration + "' WHERE id = '" + latestVideoId + "'"
                 con.query(sql, function (err, result) {
-                  console.log('Updated the video duration')
+                  console.log(result)
                   // console.dir(result)
                 })
               })
