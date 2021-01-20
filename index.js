@@ -7,6 +7,7 @@ const _ = require('lodash')
 const exec = require('child_process').exec
 const rand = require('random-id')
 const fs = require('fs')
+const config = require('./config.json')
 
 const app = express()
 
@@ -32,10 +33,10 @@ const { SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS } = require('constants')
 const mysql = require('mysql')
 const { lastIndexOf, get } = require('lodash')
 const con = mysql.createConnection({
-  host: '192.168.1.41',
-  user: 'root',
-  password: 'zBHNzZX54qLaQ6tAJSJECLg8CJh4J2kVvQLxPrZU9LzeZ9dDNgARcAAG3AKWq853',
-  database: 'videotube'
+  host: config.dbInfo.host,
+  user: config.dbInfo.user,
+  password: config.dbInfo.password,
+  database: config.dbInfo.database
 })
 
 app.listen(port, () =>
