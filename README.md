@@ -3,7 +3,10 @@ Hello! Welcome to the WinsVideo 2.0 project, our goal is to rewrite the whole we
 
 # Development
 Another goal for our WinsVideo Rewrite is that it will be 100% open-source, users will be able to see the code of the website. 
-
+# Goals
+* New design
+* Faster website
+* ~~be better and faster than youtube~~ kek
 ## Setting Up
 For developers who wanted to compile the website / project here is what you need to do. 
 - Clone our repository 
