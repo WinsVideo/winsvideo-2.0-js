@@ -1,4 +1,7 @@
 # WinsVideo 2.0
+
+## WinsVideo 2.0 will now be rewritten in PHP, please read the blog post. 
+
 Hello! Welcome to the WinsVideo 2.0 project, our goal is to rewrite the whole website of WinsVideo. This is because for 2 years the website has been running with the PHP programming language which makes the user experience slow, the code is extremely outdated and is vulnerable to vulnerabilities in the site for example XSS, CSRF, and others. So, after thinking for a while we decided to rewrite the whole WinsVideo website in node.js with no PHP code at all, which we already started developing the upload page. After we finish the whole website, we will keep the legacy layout but will soon be removed due to the old codebase which is not safe and very slow. 
 
 # Development
